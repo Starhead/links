@@ -80,10 +80,48 @@
     </div>
     </div>
 </div>
-<h2><a href="https://github.com/Starhead"> Link to my Github</a></h2>
+<h2></h2><a href="https://github.com/Starhead"> Link to my Github</a></h2>
 </section>
 
 
+
+
+
+<!-- js for the navbar -->
+<script>
+const toggleBtn = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
+</script>
+
+
+<!-- js for the gallery  -->
+
+<script>
+const filterButtons = document.querySelectorAll('.buttons');
+const images = document.querySelectorAll('.image');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const filterValue = button.getAttribute('data-filter');
+
+    images.forEach(img => {
+        if (filterValue === 'all' || img.classList.contains(filterValue)) {
+        img.style.display = 'block';
+        } else {
+        img.style.display = 'none';
+        }
+    });
+    });
+});
+</script>
 
 </body>
 </html>
